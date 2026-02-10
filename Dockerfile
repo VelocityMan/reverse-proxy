@@ -1,12 +1,12 @@
-FROM node:18-alpine
+FROM alpine:latest
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install
+COPY ngrix /app/ngrix
+RUN chmod +x /app/ngrix
 
-COPY server.js ./
+COPY ngrix.conf /app/ngrix.conf
 
-EXPOSE 10000
+EXPOSE 80
 
-CMD ["npm", "start"]
+CMD ["/app/ngrix", "server", "--config", "/app/ngrix.conf"]
