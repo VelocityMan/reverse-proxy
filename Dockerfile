@@ -1,4 +1,2 @@
-FROM caddy:2-builder AS builder
-
-FROM caddy:2
+FROM caddy:2-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
